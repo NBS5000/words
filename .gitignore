@@ -1,0 +1,9 @@
+# ignores modules
+node_modules/
+.env
+DS_Store
+dev.txt
+monday-toggl-database-firebase-key.json
+gsheetscredentials.json
+gsheetstoken.json
+gsheets-data-firebase.json

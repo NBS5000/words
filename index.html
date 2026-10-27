@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/words.css">
+</head>
+<body>
+    <form>
+        <input type="text" id="inputText" name="inputText">
+        <label for="inputText">Word</label>
+        <input id="submitButton" type="button" value="Get Words">
+    </form>
+    <div id="wordValue"></div>
+    <div id="synonyms"></div>
+    <div id="antonyms"></div>
+
+
+    <script src="./assets/js/getWords.js"></script>
+    <script>
+        const forAg = ["synonyms","antonyms"];
+        document.getElementById("submitButton").addEventListener("click",run);
+        async function run(e){
+            const word = document.getElementById("inputText");
+            
+            document.getElementById("wordValue").innerHTML = word.value;
+            
+            for (let i = 0; i < forAg.length; i++) {
+                const el = forAg[i];
+                await getWords(el);
+                /*.then((res)=>{
+                    const wordDiv = document.getElementById(el);
+                    wordDiv.innerHTML = res;
+                })
+                .catch((err)=>{
+                    console.log("error",err)
+                })*/
+            }
+            word.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
